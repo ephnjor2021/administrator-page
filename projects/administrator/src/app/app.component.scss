@@ -1,0 +1,48 @@
+.main-wrap {
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
+  height: 95%;
+  align-items: center;
+
+  @media screen and (max-height: 500px) {
+    .nav-wrap a {font-size: 19px;}
+    .nav-wrap {padding-top: 16px;}
+  }  
+
+  .microfrontend {
+    height: 90vh;
+    width: 80%;
+    padding: 15px;
+  }
+
+  .nav-wrap {
+    position: fixed;
+    height: 100%;
+    width: 15%;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    overflow-x: hidden;
+    background-color: #cc2900;
+    padding-top: 15px;
+  }
+
+  .nav-wrap a {
+    text-decoration: none;
+    padding: 5px 7px 5px 15px;
+    font-size: 25px;
+    display: block;
+    color: #fceb00;
+    margin-top: 15px;
+  }
+
+  .main {
+    padding: 1px 15px;
+    margin-left: 165px;
+  }
+
+  .nav-wrap a:hover {
+    color: #00f752;
+  }
+}

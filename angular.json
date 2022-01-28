@@ -1,0 +1,347 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"administrator": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/administrator",
+			"sourceRoot": "projects/administrator/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/administrator",
+						"index": "projects/administrator/src/index.html",
+						"main": "projects/administrator/src/main.ts",
+						"polyfills": "projects/administrator/src/polyfills.ts",
+						"tsConfig": "projects/administrator/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/administrator/src/favicon.ico",
+							"projects/administrator/src/assets"
+						],
+						"styles": [
+							"projects/administrator/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/administrator/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/administrator/src/environments/environment.ts",
+									"with": "projects/administrator/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/administrator/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "administrator:build:production",
+							"extraWebpackConfig": "projects/administrator/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "administrator:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 3000,
+						"publicHost": "http://localhost:3000",
+						"extraWebpackConfig": "projects/administrator/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "administrator:build",
+						"extraWebpackConfig": "projects/administrator/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/administrator/src/test.ts",
+						"polyfills": "projects/administrator/src/polyfills.ts",
+						"tsConfig": "projects/administrator/tsconfig.spec.json",
+						"karmaConfig": "projects/administrator/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/administrator/src/favicon.ico",
+							"projects/administrator/src/assets"
+						],
+						"styles": [
+							"projects/administrator/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"forumPage": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/forum-page",
+			"sourceRoot": "projects/forum-page/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/forum-page",
+						"index": "projects/forum-page/src/index.html",
+						"main": "projects/forum-page/src/main.ts",
+						"polyfills": "projects/forum-page/src/polyfills.ts",
+						"tsConfig": "projects/forum-page/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/forum-page/src/favicon.ico",
+							"projects/forum-page/src/assets"
+						],
+						"styles": [
+							"projects/forum-page/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/forum-page/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/forum-page/src/environments/environment.ts",
+									"with": "projects/forum-page/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/forum-page/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "forumPage:build:production",
+							"extraWebpackConfig": "projects/forum-page/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "forumPage:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4000,
+						"publicHost": "http://localhost:4000",
+						"extraWebpackConfig": "projects/forum-page/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "forumPage:build",
+						"extraWebpackConfig": "projects/forum-page/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/forum-page/src/test.ts",
+						"polyfills": "projects/forum-page/src/polyfills.ts",
+						"tsConfig": "projects/forum-page/tsconfig.spec.json",
+						"karmaConfig": "projects/forum-page/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/forum-page/src/favicon.ico",
+							"projects/forum-page/src/assets"
+						],
+						"styles": [
+							"projects/forum-page/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"forumpage": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/forumpage",
+			"sourceRoot": "projects/forumpage/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/forumpage",
+						"index": "projects/forumpage/src/index.html",
+						"main": "projects/forumpage/src/main.ts",
+						"polyfills": "projects/forumpage/src/polyfills.ts",
+						"tsConfig": "projects/forumpage/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/forumpage/src/favicon.ico",
+							"projects/forumpage/src/assets"
+						],
+						"styles": [
+							"projects/forumpage/src/styles.scss"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/forumpage/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/forumpage/src/environments/environment.ts",
+									"with": "projects/forumpage/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/forumpage/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "forumpage:build:production",
+							"extraWebpackConfig": "projects/forumpage/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "forumpage:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4000,
+						"publicHost": "http://localhost:4000",
+						"extraWebpackConfig": "projects/forumpage/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "forumpage:build",
+						"extraWebpackConfig": "projects/forumpage/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/forumpage/src/test.ts",
+						"polyfills": "projects/forumpage/src/polyfills.ts",
+						"tsConfig": "projects/forumpage/tsconfig.spec.json",
+						"karmaConfig": "projects/forumpage/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/forumpage/src/favicon.ico",
+							"projects/forumpage/src/assets"
+						],
+						"styles": [
+							"projects/forumpage/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "administrator"
+}
